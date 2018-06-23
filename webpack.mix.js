@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
 
+require('laravel-mix-purgecss')
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -23,10 +25,11 @@ mix
     .copyDirectory('node_modules/ionicons/fonts', 'public/fonts')
     .sass('resources/assets/sass/dashboard.scss', 'public/dist/css/dashboard')
     .sass('resources/assets/sass/app.scss', 'public/dist/css')
+    .purgeCss()
     .options({
         processCssUrls: false
     })
-    .js('resources/assets/js/app.js', 'public/dist/js')
+    .js('resources/assets/js/app.js', 'public/dist/js').extract(['vue', 'chart.js'])
     .scripts([
         'public/dist/js/app.js',
         'node_modules/es5-shim/es5-shim.js',
@@ -40,7 +43,6 @@ mix
         'node_modules/messenger/build/js/messenger.min.js',
         'node_modules/sortablejs/Sortable.min.js',
         'node_modules/jquery-minicolors/jquery.minicolors.min.js',
-        'node_modules/chart.js/dist/Chart.min.js',
         'node_modules/jquery-sparkline/jquery.sparkline.min.js',
         'node_modules/sweetalert2/dist/sweetalert2.min.js',
         'node_modules/livestamp/livestamp.js',

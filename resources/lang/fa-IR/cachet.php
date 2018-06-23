@@ -33,6 +33,7 @@ return [
         'scheduled'    => 'تعمیرات زمان‌بندی شده',
         'scheduled_at' => '، برنامه ریزی شده :timestamp',
         'posted'       => 'Posted :timestamp',
+        'posted_at'    => 'Posted at :timestamp',
         'status'       => [
             1 => 'در دست بررسی',
             2 => 'شناسایی شده',
@@ -52,7 +53,7 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] سامانه فعال است | [2,Inf] همه سامانه‌ها فعالند',
+        'good'  => '[0,1]System operational|[2,*]All systems are operational',
         'bad'   => '[0,1] سامانه در حال حاضر دچار اشکال است ‌| [2,Inf] برخی از سامانه‌ها دچار اشکال شده‌اند',
         'major' => '[0,1] The system is experiencing major issues|[2,Inf] Some systems are experiencing major issues',
     ],
@@ -74,12 +75,14 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'مشترک شوید تا از آخرین به‌روزرسانی‌ها آگاه شوید',
-        'unsubscribe' => 'لغو عضویت در: لینک',
-        'button'      => 'اشتراک اطلاع‌رسانی',
-        'manage'      => [
+        'subscribe'           => 'مشترک شوید تا از آخرین به‌روزرسانی‌ها آگاه شوید',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'اشتراک اطلاع‌رسانی',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
             'no_subscriptions' => 'در حال حاضر شما برای همه به‌روزرسانی‌ها مشترک هستید.',
             'my_subscriptions' => 'در حال حاضر شما برای این به‌روزرسانی‌ها مشترک هستید.',
+            'manage_at_link'   => 'Manage your subscriptions at :link',
         ],
         'email' => [
             'subscribe'          => 'اشتراک در به‌روزرسانی‌های ایمیلی.',
@@ -116,9 +119,18 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Details and updates about the :name incident that occurred on :date',
+            'schedule'  => 'Details about the scheduled maintenance period :name starting :startDate',
+            'subscribe' => 'Subscribe to :app in order to receive updates of incidents and scheduled maintenance periods',
+            'overview'  => 'Stay up to date with the latest service updates from :app.',
+        ],
+    ],
+
     // Other
     'home'            => 'خانه',
-    'description'     => 'Stay up to date with the latest service updates from :app.',
     'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
     'timezone'        => 'Times are shown in :timezone.',
     'about_this_site' => 'درباره این سایت',

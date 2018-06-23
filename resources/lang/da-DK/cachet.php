@@ -29,10 +29,11 @@ return [
     'incidents' => [
         'none'         => 'Ingen hændelser er rapporteret',
         'past'         => 'Tidligere hændelser',
-        'stickied'     => 'Stickied Incidents',
-        'scheduled'    => 'Planlagt vedligeholdelse',
+        'stickied'     => 'Låst hændelse',
+        'scheduled'    => 'Vedligeholdelse',
         'scheduled_at' => ', planlagt til :timestamp',
         'posted'       => 'Sendt :timestamp',
+        'posted_at'    => 'Indsendt :timestamp',
         'status'       => [
             1 => 'Undersøger',
             2 => 'Identificeret',
@@ -52,9 +53,9 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] Systemet virker|[2,Inf] Alle systemer virker',
-        'bad'   => '[0,1] Systemet har i øjeblikket problemer|[2,Inf] Nogle systemer har i øjeblikket problemer',
-        'major' => '[0,1] Systemet har i øjeblikket store problemer|[2,Inf] Nogle systemer har i øjeblikket store problemer',
+        'good'  => '[0,1] Systemet operationelt | [2, *] Alle systemer er operationelle',
+        'bad'   => '[0,1] Systemet har i øjeblikket problemer|[2,*] Nogle systemer har i øjeblikket problemer',
+        'major' => '[0,1] Systemet har i øjeblikket store problemer|[2,*] Nogle systemer har i øjeblikket store problemer',
     ],
 
     'api' => [
@@ -74,12 +75,14 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Tilmeld dig for at få de seneste opdateringer',
-        'unsubscribe' => 'Afmeld via :link',
-        'button'      => 'Abonner',
-        'manage'      => [
+        'subscribe'           => 'Tilmeld dig for at få de seneste opdateringer',
+        'unsubscribe'         => 'Opsige abonnement',
+        'button'              => 'Abonner',
+        'manage_subscription' => 'Administrer abonnement',
+        'manage'              => [
             'no_subscriptions' => 'Du abonner i øjeblikket på alle opdateringer.',
             'my_subscriptions' => 'Du abonnere i øjeblikket på følgende opdateringer.',
+            'manage_at_link'   => 'Håndtér dine abonnementer via :link',
         ],
         'email' => [
             'subscribe'          => 'Abonner på email opdateringer.',
@@ -116,11 +119,20 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Detaljer og opdateringer om hændelse :navn, der fandt sted på :dato',
+            'schedule'  => 'Oplysninger om planlagt vedligeholdelse periode :name begynder :startDate',
+            'subscribe' => 'Abonner på :app for at modtage opdateringer af hændelser og planlagte vedligeholdelsesperioder',
+            'overview'  => 'Hold dig opdateret med de seneste opdateringer fra :app.',
+        ],
+    ],
+
     // Other
     'home'            => 'Hjem',
-    'description'     => 'Hold dig opdateret med de seneste opdateringer fra :app.',
     'powered_by'      => 'Drevet af <a href="https://cachethq.io" class="links"> Cachet</a>.',
-    'timezone'        => 'Klokkeslæt angives som :timezone.',
+    'timezone'        => 'Klokkeslæt vises i :timezone.',
     'about_this_site' => 'Om denne side',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',

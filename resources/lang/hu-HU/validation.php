@@ -31,8 +31,8 @@ return [
     'array'      => ':attribute csak tömb típusú lehet.',
     'before'     => ':attribute csak :date előtti dátum lehet.',
     'between'    => [
-        'numeric' => 'The :attribute must be between :min and :max.',
-        'file'    => 'The :attribute must be between :min and :max kilobytes.',
+        'numeric' => ':attribute csak :min és :max között érvényes.',
+        'file'    => 'Az :attribute-nak :min -:max kilobájt között kell lennie.',
         'string'  => 'The :attribute must be between :min and :max characters.',
         'array'   => ':attribute csak :min és :max elem közötti lehet.',
     ],

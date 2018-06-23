@@ -12,9 +12,9 @@
 return [
     // Components
     'components' => [
-        'last_updated' => 'Last updated :timestamp',
+        'last_updated' => 'Τελευταία ενημέρωση :timestamp',
         'status'       => [
-            0 => 'Unknown',
+            0 => 'Άγνωστο',
             1 => 'Λειτουργικό',
             2 => 'Προβλήματα επιδόσης',
             3 => 'Μερική Διακοπή',
@@ -32,7 +32,8 @@ return [
         'stickied'     => 'Stickied Incidents',
         'scheduled'    => 'Προγραμματισμένη Συντήρηση',
         'scheduled_at' => ', προγραμματισμένη :timestamp',
-        'posted'       => 'Posted :timestamp',
+        'posted'       => 'Αναρτήθηκε :timestamp',
+        'posted_at'    => 'Posted at :timestamp',
         'status'       => [
             1 => 'Διερευνάται',
             2 => 'Προσδιορίστηκε',
@@ -45,14 +46,14 @@ return [
     'schedules' => [
         'status' => [
             0 => 'Upcoming',
-            1 => 'In Progress',
+            1 => 'Σε εξέλιξη',
             2 => 'Complete',
         ],
     ],
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] Το σύστημα βρίσκεται σε λειτουργία[2,Inf] Όλα τα συστήματα βρίσκονται σε λειτουργία',
+        'good'  => '[0,1]System operational|[2,*]All systems are operational',
         'bad'   => '[0,1] Το σύστημα αντιμετωπίζει προβλήματα|[2,Inf] Κάποια συστήματα αντιμετωπίζουν προβλήματα',
         'major' => '[0,1] Η υπηρεσία αντιμετωπίζει μία σημαντική διακοπή|[2,Inf] Κάποια συστήματα αντιμετωπίζουν μία σημαντική διακοπή',
     ],
@@ -74,18 +75,20 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Εγγραφείτε για να λάβετε τις τελευταίες ενημερώσεις',
-        'unsubscribe' => 'Unsubscribe at :link',
-        'button'      => 'Εγγραφή',
-        'manage'      => [
+        'subscribe'           => 'Εγγραφείτε για να λάβετε τις τελευταίες ενημερώσεις',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Εγγραφή',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
             'no_subscriptions' => 'You\'re currently subscribed to all updates.',
             'my_subscriptions' => 'You\'re currently subscribed to the following updates.',
+            'manage_at_link'   => 'Manage your subscriptions at :link',
         ],
         'email' => [
             'subscribe'          => 'Εγγραφή στις ενημερώσεις μέσω email.',
             'subscribed'         => 'Έχετε εγγραφεί στις ενημερώσεις μέσω email, παρακαλώ ελέγξτε το email σας για να επιβεβαιώσετε την εγγραφή σας.',
             'verified'           => 'Η εγγραφή σας έχει επιβεβαιωθεί. Ευχαριστούμε!',
-            'manage'             => 'Manage your subscription',
+            'manage'             => 'Διαχειριστείτε τη συνδρομή σας',
             'unsubscribe'        => 'Διαγραφή από τις ενημερώσεις μέσω email.',
             'unsubscribed'       => 'Η εγγραφή σας έχει ακυρωθεί.',
             'failure'            => 'Προέκυψε ένα σφάλμα σχετικά με την εγγραφή.',
@@ -116,11 +119,20 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Details and updates about the :name incident that occurred on :date',
+            'schedule'  => 'Details about the scheduled maintenance period :name starting :startDate',
+            'subscribe' => 'Subscribe to :app in order to receive updates of incidents and scheduled maintenance periods',
+            'overview'  => 'Stay up to date with the latest service updates from :app.',
+        ],
+    ],
+
     // Other
     'home'            => 'Home',
-    'description'     => 'Stay up to date with the latest service updates from :app.',
     'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
-    'timezone'        => 'Times are shown in :timezone.',
+    'timezone'        => 'Η ώρα προβάλλεται σε ζώνη :timezone.',
     'about_this_site' => 'Σχετικά με αυτόν τον ιστότοπο',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',

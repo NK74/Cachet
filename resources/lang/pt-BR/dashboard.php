@@ -12,16 +12,30 @@
 return [
 
     'dashboard'          => 'Dashboard',
-    'writeable_settings' => 'O diretório configurações do Cachet não é gravável. Certifique-se de que<code>./bootstrap/cachet</code> é gravável pelo servidor web.',
+    'writeable_settings' => 'O diretório de configurações do Cachet não é gravável. Certifique-se de que<code>./bootstrap/cachet</code> é gravável pelo servidor web.',
 
     // Incidents
     'incidents' => [
-        'title'                    => 'Incidentes &amp; Agenda',
+        'title'                    => 'Incidentes & Agendamentos',
         'incidents'                => 'Incidentes',
-        'logged'                   => '{0} Não existem incidentes, bom trabalho.|Você registrou um incidente.|Você reportou <strong>:count</strong> incidentes.',
+        'logged'                   => '{0}Não existem incidentes, bom trabalho.|[1]Você adicionou um incidente.|[2,*]Você reportou <strong>:count</strong> incidentes.',
         'incident-create-template' => 'Criar template',
         'incident-templates'       => 'Template de incidentes',
-        'updates'                  => '{0} Nenhuma Atualização|Uma Atualização|:contagem de Atualizações',
+        'updates'                  => [
+            'title'   => 'Atualizações para o incidente :incident',
+            'count'   => '{0}Zero atualizações|[1]Uma atualização|[2]Duas atualizações|[3,*]Várias atualizações',
+            'add'     => [
+                'title'   => 'Crie uma nova atualização de incidente',
+                'success' => 'Seu novo incidente foi criado.',
+                'failure' => 'Algo deu errado com a atualização do incidente.',
+            ],
+            'edit' => [
+                'title'   => 'Editar atualização do incidente',
+                'success' => 'O incidente foi atualizado.',
+                'failure' => 'Algo deu errado ao atualizar o incidente',
+            ],
+        ],
+        'reported_by'              => 'Reportado por :user',
         'add'                      => [
             'title'   => 'Relatar um incidente',
             'success' => 'Incidente adicionado.',
@@ -35,11 +49,6 @@ return [
         'delete' => [
             'success' => 'O incidente foi excluído e não aparecerá na sua página de status.',
             'failure' => 'O incidente não pode ser excluído, por favor tente novamente.',
-        ],
-        'update' => [
-            'title'    => 'Crie uma nova atualização de incidente',
-            'subtitle' => 'Adicione uma atualização ao <strong>:incidente</strong>',
-            'success'  => 'Update added.',
         ],
 
         // Incident templates
@@ -65,12 +74,12 @@ return [
 
     // Incident Maintenance
     'schedule' => [
-        'schedule'     => 'Manutenção Agendada',
-        'logged'       => '{0} Não existem agendamentos, bom trabalho.|Você introduziu um agendamento.|Você reportou <strong>:count</strong> agendamentos.',
+        'schedule'     => 'Manutenção',
+        'logged'       => '{0}Ainda não ocorreu nenhuma manuteção, bom trabalho. |[1]Você agendou uma manuteção. | [2, *] Você adicionou <strong>:</strong> manutenções.',
         'scheduled_at' => 'Agendada em :timestamp',
         'add'          => [
             'title'   => 'Adicionar manutenção programada',
-            'success' => 'Programação adicionada.',
+            'success' => 'Agendamento adicionado.',
             'failure' => 'Ocorreu um problema ao adicionar a programação, por favor tente novamente.',
         ],
         'edit' => [
@@ -147,13 +156,15 @@ return [
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'      => 'Assinantes',
-        'description'      => 'Assinantes vão receber atualizações de e-mail quando incidentes criados ou componentes atualizados.',
-        'verified'         => 'Verificado',
-        'not_verified'     => 'Não verificado',
-        'subscriber'       => ':email, inscreveu-se em :date',
-        'no_subscriptions' => 'Inscrito em todas as atualizações',
-        'add'              => [
+        'subscribers'          => 'Assinantes',
+        'description'          => 'Assinantes vão receber atualizações de e-mail quando incidentes criados ou componentes atualizados.',
+        'description_disabled' => 'Para utilizar esse recurso, você precisa permitir que as pessoas se cadastrem para notificações.',
+        'verified'             => 'Verificado',
+        'not_verified'         => 'Não verificado',
+        'subscriber'           => ':email, inscreveu-se em :date',
+        'no_subscriptions'     => 'Inscrito em todas as atualizações',
+        'global'               => 'Inscrito globalmente',
+        'add'                  => [
             'title'   => 'Adicionar um novo assinante',
             'success' => 'Inscrito adicionado.',
             'failure' => 'Algo deu errado adicionando o assinante, por favor tente novamente.',
@@ -205,7 +216,7 @@ return [
             'analytics' => 'Estatísticas',
         ],
         'log' => [
-            'log' => 'Registro de eventos',
+            'log' => 'Log',
         ],
         'localization' => [
             'localization' => 'Idioma',

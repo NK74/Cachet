@@ -14,7 +14,7 @@ return [
     'components' => [
         'last_updated' => 'Ultima actualizare :timestamp',
         'status'       => [
-            0 => 'Unknown',
+            0 => 'Necunoscut',
             1 => 'Operaţional',
             2 => 'Probleme de performanţă',
             3 => 'Ȋntrerupere parțială',
@@ -33,6 +33,7 @@ return [
         'scheduled'    => 'Întreținere programată',
         'scheduled_at' => ', programată: timestamp',
         'posted'       => 'Publicat :timestamp',
+        'posted_at'    => 'Posted at :timestamp',
         'status'       => [
             1 => 'Sub investigație',
             2 => 'Identificat',
@@ -44,15 +45,15 @@ return [
     // Schedule
     'schedules' => [
         'status' => [
-            0 => 'Upcoming',
-            1 => 'In Progress',
-            2 => 'Complete',
+            0 => 'Urmează',
+            1 => 'În progres',
+            2 => 'Terminat',
         ],
     ],
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] Sistem operaţional|[2,Inf] Toate sistemele sunt operaţionale',
+        'good'  => '[0,1]System operational|[2,*]All systems are operational',
         'bad'   => '[0,1] Sistemul se confruntă cu probleme|[2,Inf] Unele sisteme se confruntă cu probleme',
         'major' => '[0,1] Serviciul se confruntă cu o întrerupere a funcționării majoră| [2, Inf] Unele sisteme se confruntă cu întreruperi de funcţionare majore',
     ],
@@ -74,12 +75,14 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Abonează-te pentru a primi cele mai recente actualizări',
-        'unsubscribe' => 'Unsubscribe at :link',
-        'button'      => 'Abonează-te',
-        'manage'      => [
+        'subscribe'           => 'Abonează-te pentru a primi cele mai recente actualizări',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Abonează-te',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
             'no_subscriptions' => 'Acum eşti abonat la toate actualizările.',
             'my_subscriptions' => 'Acum eşti abonat la următoarele actualizări.',
+            'manage_at_link'   => 'Manage your subscriptions at :link',
         ],
         'email' => [
             'subscribe'          => 'Abonează-te la actualizări prin email.',
@@ -116,9 +119,18 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Details and updates about the :name incident that occurred on :date',
+            'schedule'  => 'Details about the scheduled maintenance period :name starting :startDate',
+            'subscribe' => 'Subscribe to :app in order to receive updates of incidents and scheduled maintenance periods',
+            'overview'  => 'Fii la curent cu cele mai recente actualizări ale serviciilor pentru :app.',
+        ],
+    ],
+
     // Other
     'home'            => 'Acasă',
-    'description'     => 'Fii la curent cu cele mai recente actualizări ale serviciilor pentru :app.',
     'powered_by'      => 'Cu sprijinul <a href="https://cachethq.io" class="links">Cachet</a>.',
     'timezone'        => 'Orele sunt afișate după fusul orar :timezone.',
     'about_this_site' => 'Despre acest Site',

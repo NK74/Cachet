@@ -30,9 +30,10 @@ return [
         'none'         => 'Hiçbir olay raporlanmadı',
         'past'         => 'Geçmiş Olaylar',
         'stickied'     => 'Yapıştırılmış Olaylar',
-        'scheduled'    => 'Zamanlanmış bakım',
+        'scheduled'    => 'Bakım',
         'scheduled_at' => ',zamanlanmış :zamandilimi',
         'posted'       => ':timestamp gönderildi',
+        'posted_at'    => 'Gönderim Zamanı :timestamp',
         'status'       => [
             1 => 'İnceleniyor',
             2 => 'Tanımlandı',
@@ -52,7 +53,7 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] Sistem çalışır durumda| [2, Inf] Tüm sistemler çalışır durumda',
+        'good'  => '[0,1]System operational|[2,*]All systems are operational',
         'bad'   => '[0,1] Sistemde şu anda sorunlar yaşanıyor [2, Inf] Bazı sistemlerde sorunlar yaşanıyor',
         'major' => '[0,1] Bu serviste büyük bir kesinti yaşıyoruz [2, Inf] Bazı sistemlerde büyük bir kesintisi yaşıyoruz',
     ],
@@ -74,12 +75,14 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Güncellemeleri almak için abone olun',
-        'unsubscribe' => 'Unsubscribe at :link',
-        'button'      => 'Abone ol',
-        'manage'      => [
+        'subscribe'           => 'Güncellemeleri almak için abone olun',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Abone ol',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
             'no_subscriptions' => 'Şu anda tüm güncellemeleri abone oldunuz.',
             'my_subscriptions' => 'Şu an aşağıdaki güncellemelere abone oldunuz.',
+            'manage_at_link'   => 'Manage your subscriptions at :link',
         ],
         'email' => [
             'subscribe'          => 'Güncellemeler için abone ol.',
@@ -111,16 +114,25 @@ return [
         'close'     => 'Kapat',
         'subscribe' => [
             'title'  => 'Bileşen güncellemelerine abone ol',
-            'body'   => 'Enter your email address to subscribe to updates for this component. If you\'re already subscribed, you\'ll already receive emails for this component.',
+            'body'   => 'Bu içeriğin güncellemelerine abone olmak için e-mail adresinizi giriniz. Eğer zaten aboneyseniz, bu içerikle ilgili zaten e-mailler alacaksınız.',
             'button' => 'Abone ol',
+        ],
+    ],
+
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Details and updates about the :name incident that occurred on :date',
+            'schedule'  => 'Details about the scheduled maintenance period :name starting :startDate',
+            'subscribe' => 'Subscribe to :app in order to receive updates of incidents and scheduled maintenance periods',
+            'overview'  => 'Şu uygulamalardaki en son hizmet güncellemeleri ile güncel kalın.',
         ],
     ],
 
     // Other
     'home'            => 'Ana Sayfa',
-    'description'     => 'Stay up to date with the latest service updates from :app.',
-    'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
-    'timezone'        => 'Times are shown in :timezone.',
+    'powered_by'      => '<a href="https://cachethq.io" class="links"> Önbellek </a> kaynaklı.',
+    'timezone'        => 'Saatler, saat diliminde gösterilir.',
     'about_this_site' => 'Bu Site hakkında',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',

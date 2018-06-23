@@ -12,6 +12,7 @@
 namespace CachetHQ\Cachet\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use CachetHQ\Cachet\Models\Traits\HasTags;
 use CachetHQ\Cachet\Models\Traits\SearchableTrait;
 use CachetHQ\Cachet\Models\Traits\SortableTrait;
 use CachetHQ\Cachet\Presenters\IncidentPresenter;
@@ -29,7 +30,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  */
 class Incident extends Model implements HasPresenter
 {
-    use SearchableTrait, SoftDeletes, SortableTrait, ValidatingTrait;
+    use HasTags, SearchableTrait, SoftDeletes, SortableTrait, ValidatingTrait;
 
     /**
      * Status for incident being investigated.
@@ -74,6 +75,9 @@ class Incident extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
+        'component_id'=> 'int',
+        'status'      => 'int',
+        'user_id'     => 'int',
         'visible'     => 'int',
         'stickied'    => 'bool',
         'occurred_at' => 'datetime',
@@ -86,6 +90,7 @@ class Incident extends Model implements HasPresenter
      * @var string[]
      */
     protected $fillable = [
+        'user_id',
         'component_id',
         'name',
         'status',
@@ -103,6 +108,7 @@ class Incident extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
+        'user_id'      => 'required|int',
         'component_id' => 'nullable|int',
         'name'         => 'required|string',
         'status'       => 'required|int',
@@ -118,6 +124,7 @@ class Incident extends Model implements HasPresenter
      */
     protected $searchable = [
         'id',
+        'user_id',
         'component_id',
         'name',
         'status',
@@ -132,6 +139,7 @@ class Incident extends Model implements HasPresenter
      */
     protected $sortable = [
         'id',
+        'user_id',
         'name',
         'status',
         'visible',
@@ -178,6 +186,16 @@ class Incident extends Model implements HasPresenter
     public function updates()
     {
         return $this->hasMany(IncidentUpdate::class)->orderBy('created_at', 'desc');
+    }
+
+    /**
+     * Get the user relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     /**

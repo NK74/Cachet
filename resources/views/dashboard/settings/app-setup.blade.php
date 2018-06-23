@@ -13,7 +13,7 @@
             <div class="col-sm-12">
                 <form id="settings-form" name="SettingsForm" class="form-vertical" role="form" action="{{ cachet_route('dashboard.settings', [], 'post') }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    @include('dashboard.partials.errors')
+                    @include('partials.errors')
                     <fieldset>
                         <div class="row">
                             <div class="col-xs-12">
@@ -59,11 +59,30 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>{{ trans('forms.settings.app-setup.major_outage_rate') }}</label>
+                                    <input type="number" name="major_outage_rate" class="form-control" value="{{ Config::get('setting.major_outage_rate', 50) }}" placeholder="{{ trans('forms.settings.app-setup.major_outage_rate') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
                                 <div class="checkbox">
                                     <label>
                                         <input type="hidden" value="0" name="enable_subscribers">
                                         <input type="checkbox" value="1" name="enable_subscribers" {{ Config::get('setting.enable_subscribers') ? 'checked' : null }}>
                                         {{ trans('forms.settings.app-setup.subscribers') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="hidden" value="0" name="suppress_notifications_in_maintenance">
+                                        <input type="checkbox" value="1" name="suppress_notifications_in_maintenance" {{ Config::get('setting.suppress_notifications_in_maintenance') ? 'checked' : null }}>
+                                        {{ trans('forms.settings.app-setup.suppress_notifications_in_maintenance') }}
                                     </label>
                                 </div>
                             </div>

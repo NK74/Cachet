@@ -15,12 +15,12 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="description" content="{{ trans('cachet.description', ['app' => $app_name]) }}">
+    <meta name="description" content="@yield('description', trans('cachet.meta.description.overview', ['app' => $app_name]))">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $site_title }}">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content="{{ trans('cachet.description', ['app' => $app_name]) }}">
+    <meta property="og:description" content="@yield('description', trans('cachet.meta.description.overview', ['app' => $app_name]))">
 
     <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
     <meta http-equiv="cleartype" content="on">
@@ -76,17 +76,19 @@
 
         Global.locale = '{{ $app_locale }}';
     </script>
-    <script src="{{ mix('dist/js/all.js') }}"></script>
+    <script src="{{ mix('dist/js/manifest.js') }}"></script>
+    <script src="{{ mix('dist/js/vendor.js') }}"></script>
 </head>
 <body class="status-page @yield('bodyClass')">
     @yield('outer-content')
 
     @include('partials.banner')
 
-    <div class="container">
+    <div class="container" id="app">
         @yield('content')
     </div>
 
     @yield('bottom-content')
 </body>
+<script src="{{ mix('dist/js/all.js') }}"></script>
 </html>

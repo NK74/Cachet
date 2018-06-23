@@ -33,6 +33,7 @@ return [
         'scheduled'    => 'Scheduled Maintenance',
         'scheduled_at' => ', scheduled :timestamp',
         'posted'       => 'Posted :timestamp',
+        'posted_at'    => 'Posted :timestamp',
         'status'       => [
             1 => 'Investigating',
             2 => 'Identified',
@@ -52,7 +53,7 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] System operational|[2,Inf] All systems are operational',
+        'good'  => '[0,1]System operational|[2,*]All systems are operational',
         'bad'   => '[0,1] The system is currently experiencing issues|[2,Inf] Some systems are experiencing issues',
         'major' => '[0,1] The service experiencing a major outage|[2,Inf] Some systems are experiencing a major outage',
     ],
@@ -74,12 +75,14 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Subscribe to get the most recent updates',
-        'unsubscribe' => 'Unsubscribe at :link',
-        'button'      => 'Subscribe',
-        'manage'      => [
+        'subscribe'           => 'Subscribe to get the most recent updates',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Subscribe',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
             'no_subscriptions' => 'You\'re currently subscribed to all updates.',
             'my_subscriptions' => 'You\'re currently subscribed to the following updates.',
+            'manage_at_link'   => 'Manage your subscriptions at :link',
         ],
         'email' => [
             'subscribe'          => 'Subscribe to email updates.',
@@ -116,9 +119,18 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Details and updates about the :name incident that occurred on :date',
+            'schedule'  => 'Details about the scheduled maintenance period :name starting :startDate',
+            'subscribe' => 'Subscribe to :app in order to receive updates of incidents and scheduled maintenance periods',
+            'overview'  => 'Stay up to date with the latest service updates from :app.',
+        ],
+    ],
+
     // Other
     'home'            => 'Home',
-    'description'     => 'Stay up to date with the latest service updates from :app.',
     'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links">Cachet</a>.',
     'timezone'        => 'Times are shown in :timezone.',
     'about_this_site' => 'About This Site',

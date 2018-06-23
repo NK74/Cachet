@@ -14,7 +14,7 @@ return [
     'components' => [
         'last_updated' => 'Ostatnia aktualizacja :timestamp',
         'status'       => [
-            0 => 'Nieznane',
+            0 => 'Nieznany',
             1 => 'Funktionsfähig',
             2 => 'Leistungsprobleme',
             3 => 'Teilweiser Ausfall',
@@ -30,9 +30,10 @@ return [
         'none'         => 'Brak zgłoszonych incydentów',
         'past'         => 'Vergangene Vorfälle',
         'stickied'     => 'Przyklejone zdarzenia',
-        'scheduled'    => 'Geplante Wartungen',
+        'scheduled'    => 'Konserwacja',
         'scheduled_at' => ', geplant :timestamp',
         'posted'       => 'Opublikowano :timestamp',
+        'posted_at'    => 'Opublikowano :timestamp',
         'status'       => [
             1 => 'Untersuchungen laufen',
             2 => 'Identifiziert',
@@ -45,16 +46,16 @@ return [
     'schedules' => [
         'status' => [
             0 => 'Nadchodzące',
-            1 => 'W toku',
+            1 => 'W trakcie',
             2 => 'Zakończone',
         ],
     ],
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] System działa poprawnie|[2,Inf] Wszystkie systemy działają poprawnie',
-        'bad'   => '[0,1] W systemie obecnie występują problemy|[2,Inf] W niektórych systemach występują problemy',
-        'major' => '[0,1] System jest poważnie przeciążony|[2,Inf] Niektóre systemy są poważnie przeciążone',
+        'good'  => '[0,1]System działa poprawnie|[2,*]Wszystkie systemy działają poprawnie',
+        'bad'   => '[0,1] W systemie występują problemy|[2,Inf] W niektórych systemach występują problemy',
+        'major' => '[0,1] W systemie występują poważne problemy|[2,Inf] W niektórych systemach występują poważne problemy',
     ],
 
     'api' => [
@@ -74,12 +75,14 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Abonnieren Sie um die neuesten Updates zu erhalten.',
-        'unsubscribe' => 'Wypisz się na :link',
-        'button'      => 'Abonnieren',
-        'manage'      => [
+        'subscribe'           => 'Abonnieren Sie um die neuesten Updates zu erhalten.',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Abonnieren',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
             'no_subscriptions' => 'Jesteś obecnie zapisany na wszystkie aktualizacje.',
             'my_subscriptions' => 'Jesteś obecnie zapisany na poniższe aktualizacje.',
+            'manage_at_link'   => 'Zarządzaj swoją subskrypcją na :link',
         ],
         'email' => [
             'subscribe'          => 'Aktualisierungen per E-Mail abonnieren.',
@@ -95,9 +98,9 @@ return [
 
     'signup' => [
         'title'    => 'Zarejestruj się',
-        'username' => 'Benutzername',
+        'username' => 'Nazwa Użytkownika',
         'email'    => 'E-Mail',
-        'password' => 'Passwort',
+        'password' => 'Hasło',
         'success'  => 'Twoje konto zostało utworzone.',
         'failure'  => 'Coś poszło nie tak w trakcje rejestracji.',
     ],
@@ -116,9 +119,18 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => 'Szczegóły i aktualizacje dotyczące zdarzenia :name, które wystąpiło :date',
+            'schedule'  => 'Szczegóły dotyczące zaplanowanej przerwy technicznej :name rozpoczynającej się :startDate',
+            'subscribe' => 'Zapisz się do :app, aby otrzymywać informacje i aktualizacje dotyczące zdarzeń i przerw technicznych',
+            'overview'  => 'Bądź na bieżąco z aktualizacjami z :app.',
+        ],
+    ],
+
     // Other
     'home'            => 'Strona Główna',
-    'description'     => 'Bądź na bieżąco z aktualizacjami z :app.',
     'powered_by'      => 'Obsługiwany przez <a href="https://cachethq.io" class="links">Cachet</a>.',
     'timezone'        => 'Czas według strefy :timezone.',
     'about_this_site' => 'Über diese Seite',

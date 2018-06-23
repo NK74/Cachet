@@ -33,6 +33,7 @@ return [
         'scheduled'    => '计划维护',
         'scheduled_at' => '，计划于 :timestamp',
         'posted'       => '发布于 :timestamp',
+        'posted_at'    => '发布于 :timestamp',
         'status'       => [
             1 => '确认中',
             2 => '修复中',
@@ -52,9 +53,9 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] 系统工作正常|[2,Inf] 所有系统工作正常',
-        'bad'   => '[0,1] 一个系统出现了问题|[2,Inf] 一些系统出现了问题',
-        'major' => '[0,1] 一个系统出现重大故障|[2,Inf] 一些系统出现重大故障',
+        'good'  => '[0,1] 系统工作正常|[2,*] 所有系统工作正常',
+        'bad'   => '[0,1] 系统出现了问题|[2,*] 一些系统出现了问题',
+        'major' => '[0,1] 系统出现重大故障|[2,*] 一些系统出现重大故障',
     ],
 
     'api' => [
@@ -74,12 +75,14 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => '订阅最新的更新。',
-        'unsubscribe' => '使用这个链接取消订阅： :link',
-        'button'      => '订阅',
-        'manage'      => [
+        'subscribe'           => '订阅最新的更新。',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => '订阅',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
             'no_subscriptions' => '您当前已订阅所有更新。',
             'my_subscriptions' => '您当前已订阅下列更新',
+            'manage_at_link'   => '在 :link 管理你的订阅',
         ],
         'email' => [
             'subscribe'          => '订阅电子邮件更新。',
@@ -116,9 +119,18 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => '有关于发生在 :date 的 :name 事件的细节与更新',
+            'schedule'  => '有关于计划维护时段 :name ，开始于 :startDate，的细节说明',
+            'subscribe' => '订阅 :app 以接收故障更新和定期维护信息',
+            'overview'  => '始终保持对 :app 服务状态的关注。',
+        ],
+    ],
+
     // Other
     'home'            => '主屏幕',
-    'description'     => '始终保持对 :app 服务状态的关注。',
     'powered_by'      => '由 <a href="https://cachethq.io" class="links">Cachet</a> 驱动。',
     'timezone'        => '时间将以 :timezone 时区显示。',
     'about_this_site' => '关于我们',

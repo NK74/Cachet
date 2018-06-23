@@ -12,16 +12,30 @@
 return [
 
     'dashboard'          => 'Översiktspanel',
-    'writeable_settings' => 'The Cachet settings directory is not writeable. Please make sure that <code>./bootstrap/cachet</code> is writeable by the web server.',
+    'writeable_settings' => 'Cachets inställningskatalog är inte skrivbar. Kontrollera att <code>./bootstrap/cachet</code> är skrivbar av webbservern.',
 
     // Incidents
     'incidents' => [
         'title'                    => 'Händelser &amp; Schema',
         'incidents'                => 'Händelser',
-        'logged'                   => '{0} Det finns inga händelser, bra jobbat!|Du har skapat en händelse.|Du har skapat <strong>:count</strong> händelser.',
+        'logged'                   => '{0}There are no incidents, good work.|[1]You have logged one incident.|[2,*]You have reported <strong>:count</strong> incidents.',
         'incident-create-template' => 'Skapa mall',
         'incident-templates'       => 'Händelsemallar',
-        'updates'                  => '{0} Zero Updates|One Update|:count Updates',
+        'updates'                  => [
+            'title'   => 'Incident updates for :incident',
+            'count'   => '{0}Zero Updates|[1]One Update|[2]Two Updates|[3,*]Several Updates',
+            'add'     => [
+                'title'   => 'Skapa en ny incidentuppdatering',
+                'success' => 'Your new incident update has been created.',
+                'failure' => 'Something went wrong with the incident update.',
+            ],
+            'edit' => [
+                'title'   => 'Edit incident update',
+                'success' => 'The incident update has been updated.',
+                'failure' => 'Something went wrong updating the incident update',
+            ],
+        ],
+        'reported_by'              => 'Reported by :user',
         'add'                      => [
             'title'   => 'Lägg till händelse',
             'success' => 'Incident skapad.',
@@ -35,11 +49,6 @@ return [
         'delete' => [
             'success' => 'Händelsen har tagits bort och kommer inte visas på din statussida.',
             'failure' => 'The incident could not be deleted, please try again.',
-        ],
-        'update' => [
-            'title'    => 'Skapa en ny incidentuppdatering',
-            'subtitle' => 'Lägg till en uppdatering till <strong>:händelsen</strong>',
-            'success'  => 'Update added.',
         ],
 
         // Incident templates
@@ -66,7 +75,7 @@ return [
     // Incident Maintenance
     'schedule' => [
         'schedule'     => 'Planerat underhåll',
-        'logged'       => '{0} Det finns inget schemalagt, bra jobbat!|Du har skapat ett schemalagt underhåll.|Du har skapat <strong>:count</strong> schemalagda underhåll.',
+        'logged'       => '{0}There has been no Maintenance, good work.|[1]You have logged one schedule.|[2,*]You have reported <strong>:count</strong> schedules.',
         'scheduled_at' => 'Schemalagd till: tidsstämpel',
         'add'          => [
             'title'   => 'Lägg till planerat underhåll',
@@ -147,13 +156,15 @@ return [
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'      => 'Prenumeranter',
-        'description'      => 'Subscribers will receive email updates when incidents are created or components are updated.',
-        'verified'         => 'Bekräftad',
-        'not_verified'     => 'Inte bekräftad',
-        'subscriber'       => ':email, subscribed :date',
-        'no_subscriptions' => 'Subscribed to all updates',
-        'add'              => [
+        'subscribers'          => 'Prenumeranter',
+        'description'          => 'Subscribers will receive email updates when incidents are created or components are updated.',
+        'description_disabled' => 'To use this feature, you need allow people to signup for notifications.',
+        'verified'             => 'Bekräftad',
+        'not_verified'         => 'Inte bekräftad',
+        'subscriber'           => ':email, subscribed :date',
+        'no_subscriptions'     => 'Prenumererat på alla uppdateringar',
+        'global'               => 'Globally subscribed',
+        'add'                  => [
             'title'   => 'Lägg till en prenumerant',
             'success' => 'Prenumerant tillagd!',
             'failure' => 'Something went wrong adding the subscriber, please try again.',
@@ -241,7 +252,7 @@ return [
             'credits'       => 'Tack till',
             'contributors'  => 'Medverkande',
             'license'       => 'Cachet is a BSD-3-licensed open source project, released by <a href="https://alt-three.com/?utm_source=cachet&utm_medium=credits&utm_campaign=Cachet%20Credit%20Dashboard" target="_blank">Alt Three Services Limited</a>.',
-            'backers-title' => 'Backers & Sponsors',
+            'backers-title' => 'Uppbackare & sponsorer',
             'backers'       => 'If you\'d like to support future development, check out the <a href="https://patreon.com/jbrooksuk" target="_blank">Cachet Patreon</a> campaign.',
             'thank-you'     => 'Thank you to each and every one of the :count contributors.',
         ],

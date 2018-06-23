@@ -16,7 +16,7 @@ return [
                 'subject'  => 'Le statut du composant a été mis à jour',
                 'greeting' => 'Le statut d’un composant a été mis à jour !',
                 'content'  => 'Le statut de :name est passé de :old_status à :new_status.',
-                'action'   => 'View',
+                'action'   => 'Afficher',
             ],
             'slack' => [
                 'title'   => 'Le statut du composant a été mis à jour',
@@ -33,7 +33,7 @@ return [
                 'subject'  => 'Nouvel incident signalé',
                 'greeting' => 'Un nouvel incident a été signalé pour :app_name.',
                 'content'  => 'Incident :name a été signalé',
-                'action'   => 'View',
+                'action'   => 'Afficher',
             ],
             'slack' => [
                 'title'   => 'Incident :name signalé',
@@ -48,7 +48,7 @@ return [
                 'subject' => 'Incident mis à jour',
                 'content' => ':name a été mis à jour',
                 'title'   => ':name est passé à :new_status',
-                'action'  => 'View',
+                'action'  => 'Afficher',
             ],
             'slack' => [
                 'title'   => ':name mis à jour',
@@ -65,7 +65,7 @@ return [
                 'subject' => 'Nouvelle planification créée',
                 'content' => ':name a été planifié pour :date',
                 'title'   => 'Une nouvelle maintenance planifiée a été créée.',
-                'action'  => 'View',
+                'action'  => 'Afficher',
             ],
             'slack' => [
                 'title'   => 'Nouvelle planification créée !',

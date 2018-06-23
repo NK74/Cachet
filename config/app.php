@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -179,13 +179,15 @@ return [
         AltThree\Twitter\TwitterServiceProvider::class,
         BackupManager\Laravel\Laravel5ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        env('APP_DEBUG') ? Barryvdh\Debugbar\ServiceProvider::class : null,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
         GrahamCampbell\Binput\BinputServiceProvider::class,
         GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
-        GrahamCampbell\Core\CoreServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         GrahamCampbell\Security\SecurityServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
+        Laravolt\Avatar\ServiceProvider::class,
         McCool\LaravelAutoPresenter\AutoPresenterServiceProvider::class,
         PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
         Roumen\Feed\FeedServiceProvider::class,
@@ -199,7 +201,6 @@ return [
         CachetHQ\Cachet\Foundation\Providers\ConfigServiceProvider::class,
         CachetHQ\Cachet\Foundation\Providers\EventServiceProvider::class,
         CachetHQ\Cachet\Foundation\Providers\IntegrationServiceProvider::class,
-        CachetHQ\Cachet\Foundation\Providers\ModuleServiceProvider::class,
         CachetHQ\Cachet\Foundation\Providers\RepositoryServiceProvider::class,
         CachetHQ\Cachet\Foundation\Providers\RouteServiceProvider::class,
 

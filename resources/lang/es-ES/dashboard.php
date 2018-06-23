@@ -16,12 +16,26 @@ return [
 
     // Incidents
     'incidents' => [
-        'title'                    => 'Incidencias y horario',
+        'title'                    => 'Incidencias y mantenimiento',
         'incidents'                => 'Incidentes',
-        'logged'                   => '{0} No hay incidencias, ¡buen trabajo!|Has registrado una incidencia.|Has reportado <strong>:count</strong> incidencias.',
+        'logged'                   => '{0} No hay incidencias, ¡buen trabajo!|[1]Has registrado una incidencia.|[2,*]Has reportado <strong>:count</strong> incidencias.',
         'incident-create-template' => 'Crear plantilla',
         'incident-templates'       => 'Plantillas de incidente',
-        'updates'                  => '{0} Cero actualizaciones|Una actualización|:count actualizaciones',
+        'updates'                  => [
+            'title'   => 'Actualizaciones de incidentes para :incident',
+            'count'   => '{0} cero actualizaciones |[1] una actualización |[2] dos actualizaciones | [3 *] Varias actualizaciones',
+            'add'     => [
+                'title'   => 'Crea una nueva actualización de incidente',
+                'success' => 'Su nueva plantilla de incidentes ha sido creada.',
+                'failure' => 'Algo salió mal con la actualización del incidente.',
+            ],
+            'edit' => [
+                'title'   => 'Editar actualización del incidente',
+                'success' => 'La actualización del incidente ha sido actualizada.',
+                'failure' => 'Algo salió mal al actualizar la actualización del incidente',
+            ],
+        ],
+        'reported_by'              => 'Informado por :user',
         'add'                      => [
             'title'   => 'Reportar incidente',
             'success' => 'Incidente agregado.',
@@ -35,11 +49,6 @@ return [
         'delete' => [
             'success' => 'El incidente se ha eliminado y no se mostrará en tu página de estado.',
             'failure' => 'El incidente no se pudo eliminar, por favor intente de nuevo.',
-        ],
-        'update' => [
-            'title'    => 'Crea una nueva actualización de incidente',
-            'subtitle' => 'Agrega una actualización a <strong>:incident</strong>',
-            'success'  => 'Update added.',
         ],
 
         // Incident templates
@@ -66,7 +75,7 @@ return [
     // Incident Maintenance
     'schedule' => [
         'schedule'     => 'Mantenimiento programado',
-        'logged'       => '{0} No hay planificaciones, buen trabajo.|Has registrado una planificación.|Has registrado <strong>:count</strong> planificaciones.',
+        'logged'       => '{0} No ha habido mantenimiento, buen trabajo.|[1]Has registrado una planificación.|[2,*]Has registrado <strong>:count</strong> planificaciones.',
         'scheduled_at' => 'Programado para :timestamp',
         'add'          => [
             'title'   => 'Agregar mantenimiento programado',
@@ -147,13 +156,15 @@ return [
     ],
     // Subscribers
     'subscribers' => [
-        'subscribers'      => 'Suscriptores',
-        'description'      => 'Los suscriptores recibirán actualizaciones por correo electrónico cuando se creen incidentes o se actualicen componentes.',
-        'verified'         => 'Verificado',
-        'not_verified'     => 'No confirmado',
-        'subscriber'       => ':email, suscrito :date',
-        'no_subscriptions' => 'Suscrito a todas las actualizaciones',
-        'add'              => [
+        'subscribers'          => 'Suscriptores',
+        'description'          => 'Los suscriptores recibirán actualizaciones por correo electrónico cuando se creen incidentes o se actualicen componentes.',
+        'description_disabled' => 'Para utilizar esta función, necesita permitir a las personas registrarse a las notificaciones.',
+        'verified'             => 'Verificado',
+        'not_verified'         => 'No confirmado',
+        'subscriber'           => ':email, suscrito :date',
+        'no_subscriptions'     => 'Suscrito a todas las actualizaciones',
+        'global'               => 'Suscrito a todo',
+        'add'                  => [
             'title'   => 'Agregar un nuevo subscriptor',
             'success' => 'Subscriptor agregado.',
             'failure' => 'Algo salió mal al agregar el suscriptor, por favor, inténtelo de nuevo.',

@@ -38,7 +38,7 @@ class IncidentUpdateController extends AbstractApiController
      */
     public function index(Incident $incident)
     {
-        $updates = IncidentUpdate::orderBy('created_at', 'desc');
+        $updates = $incident->updates()->orderBy('created_at', 'desc');
 
         if ($sortBy = Binput::get('sort')) {
             $direction = Binput::has('order') && Binput::get('order') == 'desc';
@@ -78,6 +78,8 @@ class IncidentUpdateController extends AbstractApiController
                 $incident,
                 Binput::get('status'),
                 Binput::get('message'),
+                Binput::get('component_id'),
+                Binput::get('component_status'),
                 Auth::user()
             ));
         } catch (QueryException $e) {

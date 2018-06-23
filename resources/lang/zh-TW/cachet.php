@@ -12,27 +12,28 @@
 return [
     // Components
     'components' => [
-        'last_updated' => '最後更新',
+        'last_updated' => '最後更新： :timestamp',
         'status'       => [
-            0 => 'Unknown',
+            0 => '未知',
             1 => '正常',
             2 => '效能問題',
             3 => '部分停止運作',
             4 => '停止運作',
         ],
         'group' => [
-            'other' => '其他组件',
+            'other' => '其他元件',
         ],
     ],
 
     // Incidents
     'incidents' => [
-        'none'         => '沒有任何報告',
-        'past'         => 'Past Incidents',
+        'none'         => '沒有故障報告',
+        'past'         => '過往事件',
         'stickied'     => 'Stickied 事件',
-        'scheduled'    => '排程維護',
+        'scheduled'    => '維護',
         'scheduled_at' => '，於:timestamp',
         'posted'       => '簽名時間戳',
+        'posted_at'    => '張貼於：:timestamp',
         'status'       => [
             1 => '調查中',
             2 => '已辨明',
@@ -44,17 +45,17 @@ return [
     // Schedule
     'schedules' => [
         'status' => [
-            0 => 'Upcoming',
-            1 => 'In Progress',
-            2 => 'Complete',
+            0 => '預定事項',
+            1 => '處理中',
+            2 => '已解決',
         ],
     ],
 
     // Service Status
     'service' => [
-        'good'  => '[0,1] 系統運作正常|[2,Inf] 所有系統運作正常',
-        'bad'   => '[0,1] 系統目前發生異常情形。|[2,Inf] 部分系統發生異常情形。',
-        'major' => '[0,1] 一個系統出現重大故障|[2,Inf] 一些系統出現重大故障',
+        'good'  => '[0,1] 系統運作正常|[2,*] 所有系統運作正常',
+        'bad'   => '[0,1] 系統目前發生異常。|[2,Inf] 部分系統發生異常。',
+        'major' => '[0,1] 系統出現故障|[2,Inf] 一些系統出現故障',
     ],
 
     'api' => [
@@ -68,18 +69,20 @@ return [
             'last_hour' => '一小時前',
             'hourly'    => '最近12小時',
             'weekly'    => '週',
-            'monthly'   => '月',
+            'monthly'   => '月份',
         ],
     ],
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => '訂閱最新的狀態更新。',
-        'unsubscribe' => 'Unsubscribe at :link',
-        'button'      => '訂閱',
-        'manage'      => [
-            'no_subscriptions' => '您目前已安裝所有的更新。',
+        'subscribe'           => '訂閱以獲取最新的更新。',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => '訂閱',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
+            'no_subscriptions' => '您目前已訂閱所有的更新。',
             'my_subscriptions' => '您目前已安裝下列更新',
+            'manage_at_link'   => '請至:link管理您的訂閱',
         ],
         'email' => [
             'subscribe'          => '訂閱 電子郵件 系統狀態更新。',
@@ -116,9 +119,18 @@ return [
         ],
     ],
 
+    // Meta descriptions
+    'meta' => [
+        'description' => [
+            'incident'  => '關於發生於;date的事件「:name」的詳細資訊與後續',
+            'schedule'  => '關於開始於;startDate的計畫性維護「:name」的詳細資訊',
+            'subscribe' => '訂閱:app以獲得即時狀態、事件及維護資訊',
+            'overview'  => '始終保持對 :app 服務狀態的關注。',
+        ],
+    ],
+
     // Other
     'home'            => '首頁',
-    'description'     => '始終保持對 :app 服務狀態的關注。',
     'powered_by'      => '由 <a href="https://cachethq.io" class="links">Cachet</a> 提供。',
     'timezone'        => 'Times are shown in :timezone.',
     'about_this_site' => '關於此站點',
